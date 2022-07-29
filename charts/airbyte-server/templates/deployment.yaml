@@ -231,7 +231,7 @@ spec:
       volumes:
       - name: gcs-log-creds-volume
         secret:
-          secretName: {{ .Release.Name }}-airbyte-gcs-log-creds
+          secretName: {{ .Release.Name }}-gcs-log-creds
       {{- if .Values.extraVolumes }}
 {{ toYaml .Values.extraVolumes | nindent 6 }}
       {{- end }}
