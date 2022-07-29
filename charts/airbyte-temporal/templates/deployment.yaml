@@ -60,8 +60,7 @@ spec:
                 name: {{ .Values.global.database.secretName | default (printf "%s-postgresql" .Release.Name ) }}
                 key: {{ .Values.global.database.secretValue | default "DATABASE_PASSWORD" }}
           - name: POSTGRES_SEEDS
-            value: "10.128.16.3"
-
+            value: {{ .Values.global.database.host | default (printf "%s-postgresql" .Release.Name ) }}
           - name: DYNAMIC_CONFIG_FILE_PATH
             value: "config/dynamicconfig/development.yaml"
         {{- end }}
